@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#1B1A18">
+<title>百momo ジャーナル</title>
+<meta name="description" content="百momo からのお知らせ・最新情報">
+<meta http-equiv="content-language" content="ja">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="百momo">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://momo.search-mania.net/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Space+Grotesk:wght@300;400&family=Noto+Serif+JP:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#F5F0E6;
+  --dark:#1B1A18;
+  --ink:#1B1A18;
+  --ink-soft:#56504A;
+  --ink-muted:#8A847C;
+  --accent:#7C6E5A;
+  --gold:#B8A07A;
+  --serif-disp:'Cormorant Garamond','Noto Serif JP',serif;
+  --sans:'Space Grotesk','Noto Sans JP',sans-serif;
+  --serif-jp:'Noto Serif JP',serif;
+}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--serif-jp);
+  font-weight:300;
+  line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+}
+header{
+  background:var(--dark);
+  padding:0 clamp(20px,5vw,60px);
+  height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:sticky;top:0;z-index:10;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+header a{
+  color:var(--bg);
+  text-decoration:none;
+  font-family:var(--serif-disp);
+  font-weight:300;
+  font-size:22px;
+  letter-spacing:.12em;
+  display:flex;
+  align-items:baseline;
+  gap:6px;
+}
+header a span{
+  font-family:var(--sans);
+  font-size:12px;
+  letter-spacing:.22em;
+  color:rgba(245,240,230,.45);
+}
+.wrap{
+  max-width:740px;
+  margin:72px auto;
+  padding:0 24px 100px;
+}
+.loading{
+  text-align:center;padding:120px 0;
+  color:var(--ink-muted);font-size:12px;letter-spacing:.28em;
+  font-family:var(--sans);
+}
+.loading::after{
+  content:'読 み 込 み 中 …';
+  display:block;animation:fade 1.4s ease-in-out infinite;
+  margin-top:8px;
+}
+@keyframes fade{0%,100%{opacity:.3}50%{opacity:1}}
+
+.card{overflow:hidden;}
+.card img{
+  width:100%;display:block;
+  max-height:520px;object-fit:cover;
+}
+.card-body{padding:44px 0}
+.card .date{
+  font-family:var(--sans);
+  font-size:10px;color:var(--ink-muted);
+  letter-spacing:.28em;display:block;margin-bottom:20px;
+  text-transform:uppercase;
+}
+.card h1{
+  font-family:var(--serif-disp);
+  font-weight:300;
+  font-size:clamp(22px,4vw,34px);
+  line-height:1.5;
+  margin-bottom:32px;
+  color:var(--ink);
+  letter-spacing:.02em;
+}
+.card .text{
+  font-size:15px;line-height:2.1;
+  white-space:pre-wrap;color:var(--ink-soft);
+  word-break:break-word;letter-spacing:.04em;
+}
+.card-divider{
+  width:36px;height:1px;
+  background:var(--accent);
+  margin:32px 0;
+}
+.back-wrap{margin-top:64px;padding-top:36px;border-top:1px solid rgba(27,26,24,.08);}
+.back-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--sans);font-size:11px;
+  letter-spacing:.24em;text-transform:uppercase;
+  color:var(--ink-muted);
+  text-decoration:none;
+  transition:color .25s ease;
+}
+.back-btn:hover{color:var(--ink);}
+.not-found{
+  text-align:center;padding:100px 24px;
+}
+.not-found h1{
+  font-family:var(--serif-disp);font-weight:300;
+  font-size:28px;margin-bottom:20px;
+  color:var(--ink);letter-spacing:.04em;
+}
+.not-found p{
+  font-size:14px;color:var(--ink-muted);
+  margin-bottom:40px;line-height:1.9;
+  font-family:var(--sans);letter-spacing:.08em;
+}
+.not-found-btn{
+  display:inline-block;
+  padding:13px 32px;
+  border:1.5px solid var(--ink);
+  color:var(--ink);font-family:var(--sans);
+  font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  text-decoration:none;
+  transition:all .3s ease;
+}
+.not-found-btn:hover{background:var(--ink);color:var(--bg);}
+.produced-by{
+  text-align:center;margin-top:80px;
+  font-family:var(--sans);font-size:10px;
+  letter-spacing:.26em;text-transform:uppercase;
+  color:rgba(27,26,24,.22);
+}
+.produced-by a{
+  color:rgba(27,26,24,.35);text-decoration:none;
+  transition:color .3s ease;
+}
+.produced-by a:hover{color:var(--accent);}
+@media(max-width:600px){
+  .wrap{margin:40px auto;padding:0 18px 60px}
+  .card-body{padding:28px 0}
+  .card h1{font-size:22px;margin-bottom:24px}
+  .card .text{font-size:14px;line-height:2}
+}
+</style>
+</head>
+<body>
+<header>
+  <a href="https://momo.search-mania.net/">百<span>momo</span></a>
+</header>
+<div class="wrap" id="root">
+  <div class="loading"></div>
+</div>
+<script>
+const GAS_URL    = 'https://script.google.com/macros/s/AKfycbyLXm1UNkxfWBdZw8d1HGDV6KmVkWGTDfVUkegt_sNzdTd-VPRetCaIGSAGzA-4lGuw/exec';
+const SITE_URL   = 'https://momo.search-mania.net';
+const STORE_NAME = '百momo';
+
+function esc(s){
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function fmtDate(s){
+  if(!s)return'';
+  const m=String(s).match(/^(\d{4})-(\d{2})-(\d{2})/);
+  return m?m[1]+'.'+m[2]+'.'+m[3]:String(s);
+}
+function driveImg(url){
+  if(!url)return'';
+  const s=String(url).trim();
+  const m1=s.match(/\/d\/([a-zA-Z0-9_-]+)/);
+  if(m1)return'https://drive.google.com/thumbnail?id='+m1[1]+'&sz=w1200';
+  const m2=s.match(/lh3\.googleusercontent\.com\/d\/([a-zA-Z0-9_-]+)/);
+  if(m2)return'https://lh3.googleusercontent.com/d/'+m2[1]+'=w1200';
+  if(s.indexOf('drive.google.com/thumbnail')!==-1)return s.replace(/[?&]sz=[^&]*/,'?sz=w1200');
+  return s;
+}
+function getSlug(){
+  const m=location.pathname.match(/\/blog\/([^\/]+)\/?$/);
+  return m?m[1]:'';
+}
+function findBySlug(items,slug){
+  if(!Array.isArray(items)||!slug)return null;
+  return items.find(function(b){
+    if(!b||!b.url)return false;
+    return b.url.indexOf('/blog/'+slug+'/')!==-1||b.url.indexOf('/blog/'+slug)!==-1;
+  })||null;
+}
+function updateMeta(title,desc,imgUrl){
+  document.title=title+' | '+STORE_NAME;
+  const m1=document.querySelector('meta[name="description"]');
+  if(m1)m1.setAttribute('content',desc);
+  function upsert(attrName,attrValue,val){
+    let el=document.querySelector('meta['+attrName+'="'+attrValue+'"]');
+    if(!el){el=document.createElement('meta');el.setAttribute(attrName,attrValue);document.head.appendChild(el);}
+    el.setAttribute('content',val);
+  }
+  upsert('property','og:title',title);
+  upsert('property','og:description',desc);
+  upsert('property','og:url',SITE_URL+location.pathname);
+  upsert('name','twitter:title',title);
+  upsert('name','twitter:description',desc);
+  if(imgUrl){upsert('property','og:image',imgUrl);upsert('name','twitter:image',imgUrl);}
+  let c=document.querySelector('link[rel="canonical"]');
+  if(!c){c=document.createElement('link');c.setAttribute('rel','canonical');document.head.appendChild(c);}
+  c.setAttribute('href',SITE_URL+location.pathname);
+}
+function render(item){
+  const root=document.getElementById('root');
+  if(!item){
+    root.innerHTML='<div class="not-found"><h1>記事が見つかりません</h1><p>指定の記事は削除されたか、URLが正しくない可能性があります。</p><a class="not-found-btn" href="'+esc(SITE_URL)+'/">← トップへ戻る</a></div><div class="produced-by">Produced by <a href="https://search-mania.net/" target="_blank" rel="noopener">SearchMania Inc.</a></div>';
+    document.title='記事が見つかりません | '+STORE_NAME;
+    return;
+  }
+  const imgUrl=driveImg(item.image);
+  let title=(item.title||'').trim();
+  if(!title&&item.body)title=String(item.body).split(/[。\n]/)[0].trim();
+  if(!title&&item.date)title=fmtDate(item.date)+' の投稿';
+  const desc=(item.body||title).slice(0,120);
+  updateMeta(title,desc,imgUrl);
+  root.innerHTML=
+    '<article class="card">'+
+      (imgUrl?'<img src="'+esc(imgUrl)+'" alt="'+esc(title)+'" loading="eager">':'')+
+      '<div class="card-body">'+
+        (item.date?'<span class="date">'+esc(fmtDate(item.date))+'</span>':'')+
+        (item.title&&item.title.trim()?'<h1>'+esc(item.title)+'</h1>':'')+
+        '<div class="card-divider"></div>'+
+        '<p class="text">'+esc(item.body||'')+'</p>'+
+      '</div>'+
+    '</article>'+
+    '<div class="back-wrap"><a class="back-btn" href="'+esc(SITE_URL)+'/">← トップへ戻る</a></div>'+
+    '<div class="produced-by">Produced by <a href="https://search-mania.net/" target="_blank" rel="noopener noreferrer">SearchMania Inc.</a></div>';
+}
+(function init(){
+  const slug=getSlug();
+  if(!slug){render(null);return;}
+  fetch(GAS_URL+(GAS_URL.indexOf('?')>=0?'&':'?')+'blog_all=1')
+    .then(function(r){return r.json();})
+    .then(function(data){render(findBySlug(data&&data.blog,slug));})
+    .catch(function(){
+      fetch(GAS_URL).then(function(r){return r.json();})
+        .then(function(data){render(findBySlug(data&&data.blog,slug));})
+        .catch(function(){render(null);});
+    });
+})();
+</script>
+</body>
+</html>
