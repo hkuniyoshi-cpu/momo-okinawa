@@ -1355,3 +1355,272 @@ body::after {
   .dock-btn:last-child { display: none; }
   .hero-h1 .h1-row { font-size: clamp(3rem, 12vw, 5rem); }
 }
+
+/* ================================================================
+   23. LUXURY ANIMATION SYSTEM
+       Gold particles · Aurora · Cursor glow · Rim breathe · Sparkles
+   ================================================================ */
+
+/* ---- Canvas particles (fixed, behind all content) ---- */
+#momo-particles {
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+/* ---- Mouse cursor glow (desktop) ---- */
+#cursor-glow {
+  position: fixed;
+  width: 480px; height: 480px;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 2;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(184,160,122,0.13) 0%,
+    rgba(184,160,122,0.05) 35%,
+    transparent 70%
+  );
+  filter: blur(4px);
+  transition: opacity 0.6s ease;
+  will-change: transform;
+}
+
+/* ---- Hero aurora ---- */
+.hero-aurora {
+  position: absolute; inset: 0;
+  pointer-events: none; z-index: 0; overflow: hidden;
+}
+.hero-aurora::before {
+  content: '';
+  position: absolute;
+  width: min(120vw, 1200px); height: min(120vw, 1200px);
+  top: -45%; left: 50%;
+  margin-left: calc(min(120vw, 1200px) / -2);
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(184,160,122,0.25) 0%,
+    rgba(184,160,122,0.09) 40%,
+    transparent 70%
+  );
+  filter: blur(110px);
+  animation: aurora-breathe 9s ease-in-out infinite;
+}
+.hero-aurora::after {
+  content: '';
+  position: absolute;
+  width: min(70vw, 700px); height: min(70vw, 700px);
+  bottom: -15%; right: -10%;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(45,90,88,0.30) 0%,
+    rgba(45,90,88,0.10) 50%,
+    transparent 70%
+  );
+  filter: blur(90px);
+  animation: aurora-breathe 15s ease-in-out infinite 5s;
+}
+
+/* ---- Glow orbs (for dark sections / cin-sec) ---- */
+.lux-glow {
+  position: absolute; inset: 0;
+  pointer-events: none; z-index: 0; overflow: hidden;
+}
+.lux-glow::before {
+  content: '';
+  position: absolute;
+  width: 800px; height: 800px;
+  top: -200px; left: 15%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,160,122,0.16) 0%, transparent 60%);
+  filter: blur(100px);
+  animation: orb-wander 22s ease-in-out infinite;
+}
+.lux-glow::after {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  bottom: -150px; right: 10%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(45,90,88,0.20) 0%, transparent 60%);
+  filter: blur(80px);
+  animation: orb-wander 30s ease-in-out infinite reverse;
+}
+
+/* ---- Gold sweep ---- */
+.lux-sweep {
+  position: absolute; inset: 0;
+  background: linear-gradient(112deg,
+    transparent 15%,
+    rgba(184,160,122,0.07) 50%,
+    transparent 85%
+  );
+  background-size: 300% 100%;
+  animation: sweep-cross 14s ease-in-out infinite;
+  pointer-events: none; z-index: 0;
+}
+
+/* ---- Gold shimmer text ---- */
+.gold-shine {
+  background: linear-gradient(90deg,
+    #7C6E5A 0%,
+    #C9A84C 22%,
+    #f5e48c 44%,
+    #FFD980 54%,
+    #C9A84C 68%,
+    #7C6E5A 100%
+  );
+  background-size: 280% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  animation: gold-text-sweep 4s linear infinite;
+  display: inline;
+}
+
+/* ---- Hero h1 italic glow ---- */
+.h1-italic {
+  text-shadow:
+    0 0 40px rgba(184,160,122,0.50),
+    0 0 80px rgba(184,160,122,0.25),
+    0 0 160px rgba(184,160,122,0.10);
+  animation: italic-glow 5s ease-in-out infinite;
+}
+@keyframes italic-glow {
+  0%, 100% {
+    text-shadow:
+      0 0 30px rgba(184,160,122,0.40),
+      0 0 70px rgba(184,160,122,0.18),
+      0 0 130px rgba(184,160,122,0.08);
+  }
+  50% {
+    text-shadow:
+      0 0 80px rgba(201,168,76,0.90),
+      0 0 160px rgba(201,168,76,0.50),
+      0 0 280px rgba(245,228,140,0.20);
+  }
+}
+
+/* ---- Hero glyph enhanced pulse ---- */
+.hero-glyph {
+  animation: glyph-pulse 7s ease-in-out infinite !important;
+}
+@keyframes glyph-pulse {
+  0%, 100% {
+    opacity: 0.04;
+    text-shadow: none;
+  }
+  50% {
+    opacity: 0.12;
+    text-shadow:
+      0 0 80px rgba(184,160,122,0.40),
+      0 0 200px rgba(184,160,122,0.18);
+  }
+}
+
+/* ---- CTA dock primary pulse glow ---- */
+.dock-btn--primary {
+  animation: btn-pulse 3.5s ease-in-out infinite;
+}
+@keyframes btn-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 10px 2px rgba(184,160,122,0.20),
+      0 0 28px 6px rgba(184,160,122,0.08);
+  }
+  50% {
+    box-shadow:
+      0 0 28px 8px rgba(184,160,122,0.65),
+      0 0 70px 20px rgba(201,168,76,0.28),
+      0 0 110px 35px rgba(201,168,76,0.10);
+  }
+}
+
+/* ---- Editorial photo rim breathe ---- */
+.ed-photo-inner {
+  animation: ed-rim-breathe 7s ease-in-out infinite;
+}
+.ed-photo--right .ed-photo-inner { animation-delay: -3.5s; }
+@keyframes ed-rim-breathe {
+  0%, 100% {
+    box-shadow:
+      0 0 0 1px rgba(184,160,122,0.10),
+      0 0 30px 8px rgba(184,160,122,0.10),
+      0 0 80px 25px rgba(184,160,122,0.04);
+  }
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(201,168,76,0.55),
+      0 0 65px 22px rgba(201,168,76,0.50),
+      0 0 150px 55px rgba(245,228,140,0.18);
+  }
+}
+
+/* ---- Cinematic break gold centre orb ---- */
+.cin-sec {
+  overflow: hidden;
+  position: relative;
+}
+.cin-sec > .cin-txt,
+.cin-sec > .cin-overlay { position: relative; z-index: 1; }
+
+/* ---- Sparkle dot ---- */
+.sparkle-dot {
+  position: absolute;
+  border-radius: 50%;
+  box-shadow:
+    0 0 8px 3px rgba(201,168,76,0.80),
+    0 0 20px 7px rgba(201,168,76,0.35);
+  pointer-events: none;
+  animation: sparkle-twinkle var(--sp-dur, 2.5s) ease-in-out infinite var(--sp-delay, 0s);
+  z-index: 10;
+}
+@keyframes sparkle-twinkle {
+  0%, 100% { opacity: 0;   transform: scale(0) rotate(0deg); }
+  25%       { opacity: 1;   transform: scale(1.2) rotate(45deg); }
+  50%       { opacity: 0.7; transform: scale(0.9) rotate(90deg); }
+  75%       { opacity: 1;   transform: scale(1.5) rotate(135deg); }
+}
+
+/* ---- Keyframes ---- */
+@keyframes aurora-breathe {
+  0%, 100% { opacity: 0.60; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.20); }
+}
+@keyframes orb-wander {
+  0%   { transform: translate(0, 0) scale(1); }
+  25%  { transform: translate(80px, -70px) scale(1.12); }
+  50%  { transform: translate(-60px, 90px) scale(0.90); }
+  75%  { transform: translate(-100px, -40px) scale(1.08); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+@keyframes sweep-cross {
+  0%, 100% { background-position: 320% 0; }
+  50%       { background-position: -120% 0; }
+}
+@keyframes gold-text-sweep {
+  0%   { background-position: 280% center; }
+  100% { background-position: -280% center; }
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  #momo-particles,
+  #cursor-glow,
+  .hero-aurora::before,
+  .hero-aurora::after,
+  .lux-glow::before,
+  .lux-glow::after,
+  .lux-sweep,
+  .sparkle-dot,
+  .gold-shine,
+  .dock-btn--primary,
+  .ed-photo-inner,
+  .h1-italic,
+  .hero-glyph {
+    animation: none !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+}
