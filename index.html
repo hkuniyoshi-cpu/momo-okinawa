@@ -64,6 +64,12 @@
 <body>
 
 <!-- ================================================================
+     LUXURY LAYER — particles + cursor glow (fixed, behind all)
+     ================================================================ -->
+<canvas id="momo-particles" aria-hidden="true"></canvas>
+<div id="cursor-glow" aria-hidden="true"></div>
+
+<!-- ================================================================
      FLOATING CTA DOCK (fixed, bottom-right)
      ================================================================ -->
 <div class="cta-dock" id="ctaDock">
@@ -105,6 +111,7 @@
      HERO (100vh, dark cinematic)
      ================================================================ -->
 <section class="hero" id="hero">
+  <div class="hero-aurora"></div>
   <div class="hero-bg" id="heroBg"></div>
   <div class="hero-grain"></div>
   <div class="hero-glyph" aria-hidden="true">百</div>
@@ -119,7 +126,7 @@
     <p class="hero-eyebrow">Tiny Luxury Villa &nbsp;·&nbsp; Nanjo, Okinawa</p>
     <h1 class="hero-h1">
       <span class="h1-row" id="heroTitle">孤独という</span>
-      <em class="h1-row h1-italic">贅 沢</em>
+      <em class="h1-row h1-italic gold-shine">贅 沢</em>
     </h1>
     <p class="hero-sub" id="heroSub">琉球の丘に立つ、一棟貸しのヴィラ。<br>インフィニティプールと静寂が、あなただけのものになる。</p>
   </div>
@@ -163,6 +170,8 @@
      CINEMATIC BREAK 1
      ================================================================ -->
 <section class="cin-sec cin-sec--1" aria-hidden="true">
+  <div class="lux-glow"></div>
+  <div class="lux-sweep"></div>
   <div class="cin-overlay"></div>
   <p class="cin-txt">太平洋を一人占めにする、<br><em>朝がある。</em></p>
 </section>
@@ -205,6 +214,8 @@
      CINEMATIC BREAK 2
      ================================================================ -->
 <section class="cin-sec cin-sec--2" aria-hidden="true">
+  <div class="lux-glow"></div>
+  <div class="lux-sweep"></div>
   <div class="cin-overlay"></div>
   <p class="cin-txt">インフィニティプールと<br><em>星空の下で。</em></p>
 </section>
@@ -814,6 +825,127 @@ document.addEventListener('click', e => {
   }, { threshold: 0.3 });
   io.observe(hero);
 })();
+
+/* ================================================================
+   LUXURY ANIMATIONS — Gold Particles + Cursor Glow + Sparkles
+   ================================================================ */
+
+/* ---- Gold particle canvas ---- */
+(function() {
+  const canvas = document.getElementById('momo-particles');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [];
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  function Particle() {
+    this.reset();
+    this.life = Math.floor(Math.random() * this.maxLife);
+  }
+  Particle.prototype.reset = function() {
+    this.x      = Math.random() * (W || window.innerWidth);
+    this.y      = Math.random() * (H || window.innerHeight);
+    this.r      = Math.random() * 1.5 + 0.3;
+    this.vx     = (Math.random() - 0.5) * 0.25;
+    this.vy     = (Math.random() - 0.5) * 0.25 - 0.12;
+    this.alpha  = Math.random() * 0.55 + 0.15;
+    this.life   = 0;
+    this.maxLife= 250 + Math.floor(Math.random() * 350);
+  };
+  Particle.prototype.update = function() {
+    this.x += this.vx; this.y += this.vy; this.life++;
+    const t = this.life / this.maxLife;
+    this.cur = t < 0.12 ? this.alpha * (t / 0.12)
+             : t > 0.78 ? this.alpha * ((1 - t) / 0.22)
+             : this.alpha;
+    if (this.life >= this.maxLife) this.reset();
+  };
+  Particle.prototype.draw = function() {
+    ctx.save();
+    ctx.globalAlpha = this.cur;
+    ctx.shadowBlur  = 10;
+    ctx.shadowColor = 'rgba(184,160,122,0.9)';
+    ctx.fillStyle   = '#C8A96A';
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  };
+
+  function init() {
+    const count = Math.max(40, Math.min(120, Math.floor(W * H / 12000)));
+    particles = Array.from({length: count}, () => new Particle());
+  }
+
+  let raf;
+  function loop() {
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => { p.update(); p.draw(); });
+    raf = requestAnimationFrame(loop);
+  }
+
+  window.addEventListener('resize', () => { cancelAnimationFrame(raf); resize(); init(); loop(); });
+  resize(); init(); loop();
+})();
+
+/* ---- Cursor glow (desktop only) ---- */
+(function() {
+  const glow = document.getElementById('cursor-glow');
+  if (!glow || window.matchMedia('(hover:none)').matches) {
+    if (glow) glow.style.display = 'none';
+    return;
+  }
+  let tx = -300, ty = -300, cx = -300, cy = -300;
+  document.addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; });
+  document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+  document.addEventListener('mouseenter', () => { glow.style.opacity = '1'; });
+  (function animCursor() {
+    cx += (tx - cx) * 0.10;
+    cy += (ty - cy) * 0.10;
+    glow.style.transform = `translate(${cx}px,${cy}px) translate(-50%,-50%)`;
+    requestAnimationFrame(animCursor);
+  })();
+})();
+
+/* ---- Sparkle burst on section reveal ---- */
+(function() {
+  const GOLD = ['#f5e48c','#C9A84C','#B8A07A','#FFD980'];
+  function spawnSparkles(section, count) {
+    const rect = section.getBoundingClientRect();
+    for (let i = 0; i < count; i++) {
+      const s = document.createElement('span');
+      s.className = 'sparkle-dot';
+      s.style.cssText = [
+        'left:'    + (Math.random() * 100) + '%',
+        'top:'     + (Math.random() * 100) + '%',
+        '--sp-dur:'   + (1.8 + Math.random() * 2.4) + 's',
+        '--sp-delay:' + (Math.random() * 1.5) + 's',
+        'background:' + GOLD[Math.floor(Math.random() * GOLD.length)],
+        'width:'   + (2 + Math.random() * 2.5) + 'px',
+        'height:'  + (2 + Math.random() * 2.5) + 'px',
+      ].join(';');
+      section.appendChild(s);
+      setTimeout(() => s.remove(), 6000);
+    }
+  }
+
+  const targets = document.querySelectorAll('.cin-sec, .bk-sec, .ed-sec');
+  if (!targets.length) return;
+  const sio = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        spawnSparkles(e.target, 18);
+        sio.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.25 });
+  targets.forEach(t => sio.observe(t));
+})();
+
 </script>
 
 </body>
