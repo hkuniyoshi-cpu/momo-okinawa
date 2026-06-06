@@ -63,6 +63,14 @@
 </head>
 <body>
 
+<!-- Page loader -->
+<div id="page-loader" aria-hidden="true">
+  <div class="loader-inner">
+    <div class="loader-char">百</div>
+    <div class="loader-line"><span></span></div>
+  </div>
+</div>
+
 <!-- ================================================================
      LUXURY LAYER — cursor glow (fixed, behind all)
      ================================================================ -->
@@ -470,6 +478,19 @@ const GAS_URL = 'https://script.google.com/macros/s/AKfycbyLXm1UNkxfWBdZw8d1HGDV
 /* ================================================================
    ユーティリティ
    ================================================================ */
+/* ---- Page Loader ---- */
+let _loaderDone = false;
+function hideLoader() {
+  if (_loaderDone) return;
+  _loaderDone = true;
+  const el = document.getElementById('page-loader');
+  if (!el) return;
+  el.classList.add('is-hidden');
+  setTimeout(() => { if (el.parentNode) el.parentNode.removeChild(el); }, 950);
+}
+// 安全タイムアウト: 8秒経っても画像が来なければ強制解除
+setTimeout(hideLoader, 8000);
+
 function esc(s) {
   return String(s || '')
     .replace(/&/g, '&amp;').replace(/</g, '&lt;')
@@ -531,7 +552,7 @@ function applyHero(h) {
   } else if (h.bgImage) {
     const u = driveImg(h.bgImage); if (u) srcs.push(u);
   }
-  if (!srcs.length) return;
+  if (!srcs.length) { hideLoader(); return; }
   bg.style.cssText += 'background-size:cover;background-position:center;transition:background-image 0s;';
   let idx = 0;
   const layers = [bg];
@@ -544,8 +565,10 @@ function applyHero(h) {
     img.onload = () => { el.style.backgroundImage = `url("${url}")`; if (cb) cb(); };
     img.src = url;
   }
-  loadSlide(bg, srcs[0]);
-  bg.style.opacity = '1';
+  loadSlide(bg, srcs[0], () => {
+    bg.style.opacity = '1';
+    hideLoader();
+  });
   if (srcs.length < 2) return;
   let front = bg, back = bg2;
   setInterval(() => {
@@ -794,7 +817,7 @@ fetch(GAS_URL)
     if (data.faq)      applyFAQ(data.faq);
     if (data.cta)      applyCTA(data.cta);
   })
-  .catch(err => console.warn('CMS fetch error (GAS未設定):', err));
+  .catch(err => { console.warn('CMS fetch error (GAS未設定):', err); hideLoader(); });
 
 /* ================================================================
    Nav ドロワー
