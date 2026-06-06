@@ -1569,23 +1569,6 @@ body::after {
 .cin-sec > .cin-txt,
 .cin-sec > .cin-overlay { position: relative; z-index: 1; }
 
-/* ---- Sparkle dot ---- */
-.sparkle-dot {
-  position: absolute;
-  border-radius: 50%;
-  box-shadow:
-    0 0 8px 3px rgba(201,168,76,0.80),
-    0 0 20px 7px rgba(201,168,76,0.35);
-  pointer-events: none;
-  animation: sparkle-twinkle var(--sp-dur, 2.5s) ease-in-out infinite var(--sp-delay, 0s);
-  z-index: 10;
-}
-@keyframes sparkle-twinkle {
-  0%, 100% { opacity: 0;   transform: scale(0) rotate(0deg); }
-  25%       { opacity: 1;   transform: scale(1.2) rotate(45deg); }
-  50%       { opacity: 0.7; transform: scale(0.9) rotate(90deg); }
-  75%       { opacity: 1;   transform: scale(1.5) rotate(135deg); }
-}
 
 /* ---- Keyframes ---- */
 @keyframes aurora-breathe {
@@ -1616,7 +1599,6 @@ body::after {
   .lux-glow::before,
   .lux-glow::after,
   .lux-sweep,
-  .sparkle-dot,
   .gold-shine,
   .dock-btn--primary,
   .ed-photo-inner,
