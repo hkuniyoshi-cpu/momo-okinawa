@@ -517,21 +517,47 @@ function applySettings(s) {
 }
 
 function applyHero(h) {
+  // subLines → ヒーローサブテキスト
   if (h.subLines && h.subLines.length > 0) {
     const el = document.getElementById('heroSub');
     if (el) el.innerHTML = h.subLines.map(l => esc(l)).join('<br>');
   }
-  if (h.bgImage) {
-    const bg = document.getElementById('heroBg');
-    if (bg) {
-      const img = driveImg(h.bgImage);
-      if (img) {
-        bg.style.backgroundImage = `url(${img})`;
-        bg.style.backgroundSize = 'cover';
-        bg.style.backgroundPosition = 'center';
-      }
-    }
+  // photos → ヒーロー背景スライドショー（crossfade）
+  const bg = document.getElementById('heroBg');
+  if (!bg) return;
+  const srcs = [];
+  if (h.photos && h.photos.length) {
+    h.photos.forEach(p => { const u = driveImg(p.image); if (u) srcs.push(u); });
+  } else if (h.bgImage) {
+    const u = driveImg(h.bgImage); if (u) srcs.push(u);
   }
+  if (!srcs.length) return;
+  bg.style.cssText += 'background-size:cover;background-position:center;transition:background-image 0s;';
+  let idx = 0;
+  const layers = [bg];
+  // 2枚のレイヤーでクロスフェード
+  const bg2 = document.createElement('div');
+  bg2.style.cssText = `position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.6s ease;z-index:0;`;
+  bg.parentNode.insertBefore(bg2, bg.nextSibling);
+  function loadSlide(el, url, cb) {
+    const img = new Image();
+    img.onload = () => { el.style.backgroundImage = `url("${url}")`; if (cb) cb(); };
+    img.src = url;
+  }
+  loadSlide(bg, srcs[0]);
+  bg.style.opacity = '1';
+  if (srcs.length < 2) return;
+  let front = bg, back = bg2;
+  setInterval(() => {
+    idx = (idx + 1) % srcs.length;
+    loadSlide(back, srcs[idx], () => {
+      back.style.opacity = '1';
+      setTimeout(() => {
+        front.style.opacity = '0';
+        const tmp = front; front = back; back = tmp;
+      }, 100);
+    });
+  }, 5000);
 }
 
 function applyAbout(a) {
@@ -848,40 +874,6 @@ document.addEventListener('click', e => {
   })();
 })();
 
-/* ---- Sparkle burst on section reveal ---- */
-(function() {
-  const GOLD = ['#f5e48c','#C9A84C','#B8A07A','#FFD980'];
-  function spawnSparkles(section, count) {
-    const rect = section.getBoundingClientRect();
-    for (let i = 0; i < count; i++) {
-      const s = document.createElement('span');
-      s.className = 'sparkle-dot';
-      s.style.cssText = [
-        'left:'    + (Math.random() * 100) + '%',
-        'top:'     + (Math.random() * 100) + '%',
-        '--sp-dur:'   + (1.8 + Math.random() * 2.4) + 's',
-        '--sp-delay:' + (Math.random() * 1.5) + 's',
-        'background:' + GOLD[Math.floor(Math.random() * GOLD.length)],
-        'width:'   + (2 + Math.random() * 2.5) + 'px',
-        'height:'  + (2 + Math.random() * 2.5) + 'px',
-      ].join(';');
-      section.appendChild(s);
-      setTimeout(() => s.remove(), 6000);
-    }
-  }
-
-  const targets = document.querySelectorAll('.cin-sec, .bk-sec, .ed-sec');
-  if (!targets.length) return;
-  const sio = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        spawnSparkles(e.target, 18);
-        sio.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.25 });
-  targets.forEach(t => sio.observe(t));
-})();
 
 </script>
 
