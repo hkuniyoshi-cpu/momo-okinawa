@@ -195,9 +195,11 @@ function driveImg(url){
   if(s.indexOf('drive.google.com/thumbnail')!==-1)return s.replace(/[?&]sz=[^&]*/,'?sz=w1200');
   return s;
 }
-function getSlug(){
-  const m=location.pathname.match(/\/blog\/([^\/]+)\/?$/);
-  return m?m[1]:'';
+function getSlug() {
+  const params = new URLSearchParams(location.search);
+  if (params.get('post')) return params.get('post');
+  const m = location.pathname.match(/\/blog\/([^\/]+)\/?$/);
+  return m ? m[1] : '';
 }
 function findBySlug(items,slug){
   if(!Array.isArray(items)||!slug)return null;
@@ -217,13 +219,13 @@ function updateMeta(title,desc,imgUrl){
   }
   upsert('property','og:title',title);
   upsert('property','og:description',desc);
-  upsert('property','og:url',SITE_URL+location.pathname);
+  upsert('property','og:url',SITE_URL+location.pathname+location.search);
   upsert('name','twitter:title',title);
   upsert('name','twitter:description',desc);
   if(imgUrl){upsert('property','og:image',imgUrl);upsert('name','twitter:image',imgUrl);}
   let c=document.querySelector('link[rel="canonical"]');
   if(!c){c=document.createElement('link');c.setAttribute('rel','canonical');document.head.appendChild(c);}
-  c.setAttribute('href',SITE_URL+location.pathname);
+  c.setAttribute('href',SITE_URL+location.pathname+location.search);
 }
 function render(item){
   const root=document.getElementById('root');
@@ -238,6 +240,21 @@ function render(item){
   if(!title&&item.date)title=fmtDate(item.date)+' の投稿';
   const desc=(item.body||title).slice(0,120);
   updateMeta(title,desc,imgUrl);
+  // BlogPosting structured data (per-article SEO)
+  (function() {
+    var existing = document.getElementById('blog-jsonld');
+    if (existing) existing.remove();
+    var sd = document.createElement('script');
+    sd.id = 'blog-jsonld'; sd.type = 'application/ld+json';
+    sd.textContent = JSON.stringify({
+      '@context': 'https://schema.org', '@type': 'BlogPosting',
+      'headline': title, 'description': desc,
+      'datePublished': item.date || '', 'image': imgUrl || '',
+      'url': SITE_URL + location.pathname + location.search,
+      'publisher': { '@type': 'Organization', 'name': STORE_NAME, 'url': SITE_URL }
+    });
+    document.head.appendChild(sd);
+  })();
   root.innerHTML=
     '<article class="card">'+
       (imgUrl?'<img src="'+esc(imgUrl)+'" alt="'+esc(title)+'" loading="eager">':'')+
