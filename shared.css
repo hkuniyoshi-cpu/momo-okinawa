@@ -1373,14 +1373,6 @@ body::after {
        Gold particles · Aurora · Cursor glow · Rim breathe · Sparkles
    ================================================================ */
 
-/* ---- Canvas particles (fixed, behind all content) ---- */
-#momo-particles {
-  position: fixed; inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.8;
-}
-
 /* ---- Mouse cursor glow (desktop) ---- */
 #cursor-glow {
   position: fixed;
@@ -1618,7 +1610,6 @@ body::after {
 
 /* ---- Reduced motion ---- */
 @media (prefers-reduced-motion: reduce) {
-  #momo-particles,
   #cursor-glow,
   .hero-aurora::before,
   .hero-aurora::after,
