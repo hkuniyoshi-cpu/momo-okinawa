@@ -706,9 +706,17 @@ function applyBlog(items) {
     if (!rawTitle && b.date) rawTitle = `${fmtDate(b.date)} の投稿`;
     const shortTitle = rawTitle.length > 44 ? rawTitle.slice(0, 44) + '…' : rawTitle;
     const imgUrl = driveImg(b.image);
-    const blogHref = (b.url && b.url.includes('/blog/'))
-      ? b.url
-      : (b.date ? `/blog/${b.date}/` : null);
+    // /blog/?post=SLUG 形式で生成（_redirects rewrite 不要、/blog/ ディレクトリが実在するため確実）
+    const _blogSlug = (() => {
+      if (b.url) {
+        const mQ = b.url.match(/[?&]post=([^&]+)/);
+        if (mQ) return mQ[1];
+        const mP = b.url.match(/\/blog\/([^/?#]+)/);
+        if (mP) return mP[1];
+      }
+      return b.date || null;
+    })();
+    const blogHref = _blogSlug ? `/blog/?post=${_blogSlug}` : null;
     const tagOpen = blogHref
       ? `<a href="${blogHref}" class="e blog-card reveal">`
       : `<article class="e blog-card reveal" role="button" tabindex="0" data-idx="${i}">`;
