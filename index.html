@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0D0C0A">
+<title>百momo | Tiny Luxury Villa | 沖縄県南城市</title>
+<meta name="description" content="琉球の丘に建つ、一棟貸しのタイニーラグジュアリーヴィラ。インフィニティプール、海と森の眺望。孤独という贅沢を、南城市玉城から。">
+<meta http-equiv="content-language" content="ja">
+<link rel="canonical" href="https://momo.search-mania.net/">
+
+<!-- OGP -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="百momo | Tiny Luxury Villa | 沖縄県南城市">
+<meta property="og:description" content="琉球の丘に建つ、一棟貸しのタイニーラグジュアリーヴィラ。インフィニティプール、海と森の眺望。">
+<meta property="og:image" content="https://momo.search-mania.net/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://momo.search-mania.net/">
+<meta property="og:site_name" content="百momo">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="百momo | Tiny Luxury Villa | 沖縄県南城市">
+<meta name="twitter:description" content="琉球の丘に建つ、一棟貸しのタイニーラグジュアリーヴィラ。インフィニティプール、海と森の眺望。">
+<meta name="twitter:image" content="https://momo.search-mania.net/ogp.png">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Space+Grotesk:wght@300;400;500&family=Noto+Serif+JP:wght@200;300;400&display=swap" rel="stylesheet">
+
+<!-- CSS -->
+<link rel="stylesheet" href="./shared.css">
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "name": "百momo",
+  "inLanguage": "ja",
+  "description": "琉球の丘に建つ、一棟貸しのタイニーラグジュアリーヴィラ。インフィニティプール、海と森の眺望。",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "玉城字百名1471-1",
+    "addressLocality": "南城市",
+    "addressRegion": "沖縄県",
+    "postalCode": "901-1400",
+    "addressCountry": "JP"
+  },
+  "url": "https://momo.search-mania.net/",
+  "sameAs": ["https://www.instagram.com/momo_okinawa/"],
+  "amenityFeature": [
+    {"@type": "LocationFeatureSpecification", "name": "インフィニティプール", "value": true},
+    {"@type": "LocationFeatureSpecification", "name": "一棟貸し", "value": true},
+    {"@type": "LocationFeatureSpecification", "name": "海眺望", "value": true}
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- ================================================================
+     FLOATING CTA DOCK (fixed, bottom-right)
+     ================================================================ -->
+<div class="cta-dock" id="ctaDock">
+  <a href="https://momo.booking.chillnn.com/ja/" class="dock-btn dock-btn--primary" target="_blank" rel="noopener">予約する &nbsp;→</a>
+  <a href="https://www.airbnb.com/rooms/921986697884043822" class="dock-btn" target="_blank" rel="noopener">Airbnb</a>
+</div>
+
+<!-- ================================================================
+     NAV (minimal, fixed)
+     ================================================================ -->
+<nav class="site-nav" id="nav">
+  <a href="/" class="nav-brand">
+    <span class="brand-kanji">百</span>
+    <span class="brand-en">momo</span>
+  </a>
+  <div class="nav-end">
+    <span class="nav-loc">Nanjo, Okinawa</span>
+    <button class="nav-ham" id="navToggle" aria-label="メニューを開く">
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  <!-- Drawer backdrop -->
+  <div class="drawer-bg" id="drawerBg"></div>
+  <!-- Drawer -->
+  <div class="nav-drawer" id="navDrawer">
+    <button class="drawer-close" id="drawerClose" aria-label="閉じる">✕</button>
+    <a href="#concept" class="drawer-link">Concept</a>
+    <a href="#villa" class="drawer-link">The Villa</a>
+    <a href="#facilities" class="drawer-link">Facilities</a>
+    <a href="#foryou" class="drawer-link">For You</a>
+    <a href="#access" class="drawer-link">Access</a>
+    <a href="#faq" class="drawer-link">FAQ</a>
+    <a href="https://momo.booking.chillnn.com/ja/" class="drawer-book" target="_blank" rel="noopener">予約する &nbsp;→</a>
+  </div>
+</nav>
+
+<!-- ================================================================
+     HERO (100vh, dark cinematic)
+     ================================================================ -->
+<section class="hero" id="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-glyph" aria-hidden="true">百</div>
+
+  <div class="hero-coords" aria-label="位置情報">
+    <span>N 26°07′</span>
+    <span class="coord-dot">·</span>
+    <span>E 127°49′</span>
+  </div>
+
+  <div class="hero-body">
+    <p class="hero-eyebrow">Tiny Luxury Villa &nbsp;·&nbsp; Nanjo, Okinawa</p>
+    <h1 class="hero-h1">
+      <span class="h1-row" id="heroTitle">孤独という</span>
+      <em class="h1-row h1-italic">贅 沢</em>
+    </h1>
+    <p class="hero-sub" id="heroSub">琉球の丘に立つ、一棟貸しのヴィラ。<br>インフィニティプールと静寂が、あなただけのものになる。</p>
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true">
+    <span class="scroll-label">SCROLL DOWN</span>
+    <span class="scroll-bar"></span>
+  </div>
+
+  <div class="hero-strip" aria-label="基本仕様">
+    <span>Guests 2–4</span>
+    <span class="strip-dot">·</span>
+    <span>Infinity Pool</span>
+    <span class="strip-dot">·</span>
+    <span>Exclusive Use</span>
+  </div>
+</section>
+
+<!-- ================================================================
+     CONCEPT  (photo-left · text-right)
+     ================================================================ -->
+<section class="ed-sec" id="concept">
+  <div class="ed-photo ed-photo--left">
+    <div class="ed-photo-inner cms-photo" id="aboutPhoto1">
+      <span class="photo-label">CONCEPT</span>
+    </div>
+  </div>
+  <div class="ed-text reveal">
+    <h2 class="ed-h2" id="aboutTitle">百十踏揚の丘に、<br><em>孤独の聖域を。</em></h2>
+    <div class="ed-body" id="aboutBody">
+      <p>南城市玉城・百名。この地の名は、琉球王国に実在した王女「百十踏揚（ももとふみあがり）」の伝説に由来する。玉城城址を見守る丘の上、海と森が交わる場所に、百momoは静かに立つ。</p>
+      <p>タイニーラグジュアリーとは、面積の小ささではなく、体験の濃さだ。余計なものを削ぎ落とし、本質だけを残す建築的思考がこのヴィラを形づくっている。</p>
+      <p>ここに来る人は、リセットを求めている。デザインの仕事から、都市の喧騒から、他者との関係から。そのためにこそ、一棟貸しという形式を選んだ。</p>
+    </div>
+    <blockquote class="ed-quote" id="aboutQuote">"孤独は空虚ではない。それは、自分自身と対話するための<br>もっとも贅沢な空間だ。"</blockquote>
+    <a href="#villa" class="ed-link">ヴィラを見る &nbsp;→</a>
+  </div>
+</section>
+
+<!-- ================================================================
+     CINEMATIC BREAK 1
+     ================================================================ -->
+<section class="cin-sec cin-sec--1" aria-hidden="true">
+  <div class="cin-overlay"></div>
+  <p class="cin-txt">太平洋を一人占めにする、<br><em>朝がある。</em></p>
+</section>
+
+<!-- ================================================================
+     VILLA  (text-left · photo-right)
+     ================================================================ -->
+<section class="ed-sec ed-sec--rev" id="villa">
+  <div class="ed-text reveal">
+    <h2 class="ed-h2">建築的仕様</h2>
+    <p class="ed-sub">一棟一室。すべてはあなたのために設計されている。</p>
+    <table class="spec-tbl">
+      <tbody>
+        <tr><td class="sk">Type</td><td class="sv">一棟貸し　Exclusive Use</td></tr>
+        <tr><td class="sk">Guests</td><td class="sv">2 〜 4 名</td></tr>
+        <tr><td class="sk">View</td><td class="sv">太平洋・多々良浜・高島</td></tr>
+        <tr><td class="sk">Pool</td><td class="sv">インフィニティプール（私用）</td></tr>
+        <tr><td class="sk">Location</td><td class="sv">南城市玉城字百名</td></tr>
+        <tr><td class="sk">Check-in</td><td class="sv">15:00 〜</td></tr>
+        <tr><td class="sk">Check-out</td><td class="sv">〜 11:00</td></tr>
+      </tbody>
+    </table>
+    <a href="https://momo.booking.chillnn.com/ja/" class="ed-link" target="_blank" rel="noopener" id="heroCta">予約する &nbsp;→</a>
+  </div>
+  <div class="ed-photo ed-photo--right">
+    <div class="ed-photo-inner cms-photo" id="villaPhoto1">
+      <span class="photo-label">THE VILLA</span>
+    </div>
+  </div>
+</section>
+
+<!-- Villa Plans (CMS) -->
+<div class="villa-plans cms-loading" id="menuGrid">
+  <div class="plan-skel"></div>
+  <div class="plan-skel"></div>
+  <div class="plan-skel"></div>
+</div>
+
+<!-- ================================================================
+     CINEMATIC BREAK 2
+     ================================================================ -->
+<section class="cin-sec cin-sec--2" aria-hidden="true">
+  <div class="cin-overlay"></div>
+  <p class="cin-txt">インフィニティプールと<br><em>星空の下で。</em></p>
+</section>
+
+<!-- ================================================================
+     FACILITIES  (photo-left · list-right)
+     ================================================================ -->
+<section class="ed-sec" id="facilities">
+  <div class="ed-photo ed-photo--left">
+    <div class="ed-photo-inner cms-photo" id="facilityPhoto1">
+      <span class="photo-label">FACILITY</span>
+    </div>
+  </div>
+  <div class="ed-text reveal">
+    <h2 class="ed-h2">空間を構成する、<br><em>6つの要素。</em></h2>
+    <div class="fac-list" id="featuresGrid">
+      <div class="fac-item reveal">
+        <span class="fac-n">01</span>
+        <div class="fac-body">
+          <h3 class="fac-title">Infinity Pool</h3>
+          <p class="fac-desc">丘の端まで続く水面。太平洋と空が溶け合うこのプールは、建築的な詩だ。夜は星と海が鏡合わせになる。</p>
+        </div>
+      </div>
+      <div class="fac-item reveal">
+        <span class="fac-n">02</span>
+        <div class="fac-body">
+          <h3 class="fac-title">Full Kitchen</h3>
+          <p class="fac-desc">島の食材で、ここだけの食卓を作る。料理も、この滞在の一部として設計されている。</p>
+        </div>
+      </div>
+      <div class="fac-item reveal">
+        <span class="fac-n">03</span>
+        <div class="fac-body">
+          <h3 class="fac-title">Ocean View Deck</h3>
+          <p class="fac-desc">朝は多々良浜から昇る太陽が迎える。夕暮れはコバルトが茜に変わる瞬間を、静かに眺める。</p>
+        </div>
+      </div>
+      <div class="fac-item reveal">
+        <span class="fac-n">04</span>
+        <div class="fac-body">
+          <h3 class="fac-title">Outdoor BBQ</h3>
+          <p class="fac-desc">琉球の夜風の中で、炭火の音を聞く。屋外で過ごす時間が、日常から最も遠い場所へ連れて行く。</p>
+        </div>
+      </div>
+      <div class="fac-item reveal">
+        <span class="fac-n">05</span>
+        <div class="fac-body">
+          <h3 class="fac-title">Forest &amp; Silence</h3>
+          <p class="fac-desc">ヴィラを包む緑は、都市の騒音を遮断する。鳥と風と波だけが届く環境が、ここの設計だ。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     FOR YOU  (4-col portrait grid)
+     ================================================================ -->
+<section class="fy-sec" id="foryou">
+  <div class="fy-head reveal">
+    <p class="fy-eyebrow">For You</p>
+    <h2 class="ed-h2">こんな方のための<br><em>ヴィラです。</em></h2>
+  </div>
+  <div class="fy-grid" id="forYouGrid">
+    <article class="foryou-card reveal">
+      <div class="foryou-photo"><div class="ph-placeholder"></div></div>
+      <div class="foryou-body">
+        <p class="foryou-label">建築家・デザイナー</p>
+        <p class="foryou-desc">空間の質に敏感な人のために、このヴィラは設計されている。プールの縁の距離感、天井の高さ、窓の位置。全ての比率が語りかけてくる。</p>
+      </div>
+    </article>
+    <article class="foryou-card reveal">
+      <div class="foryou-photo"><div class="ph-placeholder"></div></div>
+      <div class="foryou-body">
+        <p class="foryou-label">クリエイティブなカップル</p>
+        <p class="foryou-desc">二人だけの空間で、言葉の要らない時間を過ごす。日常とは切り離された、純粋な休息のために。</p>
+      </div>
+    </article>
+    <article class="foryou-card reveal">
+      <div class="foryou-photo"><div class="ph-placeholder"></div></div>
+      <div class="foryou-body">
+        <p class="foryou-label">リトリート・リセット</p>
+        <p class="foryou-desc">創造力が枯渇したと感じたとき。この孤独な場所で、再び泉が湧き出るのを待つ。自然は、常に答えを持っている。</p>
+      </div>
+    </article>
+    <article class="foryou-card reveal">
+      <div class="foryou-photo"><div class="ph-placeholder"></div></div>
+      <div class="foryou-body">
+        <p class="foryou-label">特別な記念日</p>
+        <p class="foryou-desc">誰にも邪魔されない一夜を。インフィニティプールと星空の下、この地に生きた王女の伝説が、物語をより深くする。</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ================================================================
+     REVIEWS
+     ================================================================ -->
+<section class="rv-sec" id="reviews">
+  <div class="rv-inner">
+    <p class="rv-eyebrow">Guest Journal</p>
+    <h2 class="ed-h2 reveal">宿泊者の声</h2>
+    <div class="rv-grid" id="reviewsGrid">
+      <div class="review-skel"></div>
+      <div class="review-skel"></div>
+      <div class="review-skel"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     BLOG / JOURNAL
+     ================================================================ -->
+<section class="bl-sec" id="blog">
+  <div class="bl-head reveal">
+    <p class="bl-eyebrow">News &amp; Journal</p>
+    <h2 class="ed-h2">百momoより</h2>
+    <p class="bl-sub">ヴィラの季節と、南城の息づかい。</p>
+  </div>
+  <div class="wall cms-loading" id="blogWall">
+    <!-- CMS が動的に書き換える -->
+  </div>
+</section>
+
+<!-- ================================================================
+     ACCESS
+     ================================================================ -->
+<section class="ac-sec" id="access">
+  <div class="ac-info reveal">
+    <p class="ac-eyebrow">Access</p>
+    <h2 class="ed-h2">場所と<br><em>アクセス</em></h2>
+    <dl class="ac-list">
+      <dt>住所</dt>
+      <dd id="accessAddress">沖縄県南城市玉城字百名 1471-1</dd>
+      <dt>最寄り</dt>
+      <dd id="accessStation">那覇空港より車で約40分</dd>
+      <dt>座標</dt>
+      <dd>N 26°07′ &nbsp;·&nbsp; E 127°49′</dd>
+      <dt>駐車場</dt>
+      <dd id="accessParking">無料駐車場あり</dd>
+      <dt>チェックイン</dt>
+      <dd>15:00 〜</dd>
+      <dt>チェックアウト</dt>
+      <dd>〜 11:00</dd>
+    </dl>
+    <div class="ac-btns">
+      <a href="https://momo.booking.chillnn.com/ja/" class="ed-link" target="_blank" rel="noopener">予約する &nbsp;→</a>
+      <a href="https://www.airbnb.com/rooms/921986697884043822" class="ed-link ed-link--ghost" target="_blank" rel="noopener">Airbnb でも予約可</a>
+    </div>
+  </div>
+  <div class="ac-map" id="mapEmbed">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3590.5!2d127.8!3d26.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34e570b0d1a46c6d%3A0x1!2z5rWc5Z6L5biC!5e0!3m2!1sja!2sjp!4v1"
+      width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" title="百momo地図">
+    </iframe>
+  </div>
+</section>
+
+<!-- ================================================================
+     CTA / BOOKING
+     ================================================================ -->
+<section class="bk-sec" id="booking">
+  <div class="bk-inner">
+    <p class="bk-eyebrow" id="ctaEyebrow">Exclusive Tiny Luxury Villa</p>
+    <h2 class="bk-h2" id="ctaHeading1">この孤独を、<br><em>予約してください。</em></h2>
+    <p class="bk-sub" id="ctaSub">一棟貸し / インフィニティプール / 海と森の眺望<br>南城市玉城・百十踏揚の伝説の地にて</p>
+    <div class="bk-actions">
+      <a href="https://momo.booking.chillnn.com/ja/" class="bk-btn bk-btn--primary" target="_blank" rel="noopener" id="ctaBtn1">空き状況を確認 &nbsp;→</a>
+      <a href="https://www.airbnb.com/rooms/921986697884043822" class="bk-btn bk-btn--ghost" target="_blank" rel="noopener" id="ctaBtn2">Airbnb でも予約可</a>
+    </div>
+    <p class="bk-note cta-note">Instagram:
+      <a href="https://www.instagram.com/momo_okinawa/" target="_blank" rel="noopener">@momo_okinawa</a>
+    </p>
+  </div>
+</section>
+
+<!-- ================================================================
+     FAQ
+     ================================================================ -->
+<section class="fq-sec" id="faq">
+  <h2 class="ed-h2 fq-title reveal">よくある<br><em>ご質問</em></h2>
+  <div class="fq-list" id="faqList">
+    <details class="faq-item">
+      <summary class="faq-q">何名まで宿泊できますか？</summary>
+      <p class="faq-a">最大4名様まで宿泊可能です。1棟すべてをお客様専用でお使いいただけます。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q">インフィニティプールは24時間使用できますか？</summary>
+      <p class="faq-a">宿泊中はご自由にご利用いただけます。夜のプールは星空と海が溶け合う特別な体験です。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q">近くにスーパーや飲食店はありますか？</summary>
+      <p class="faq-a">車で15〜20分圏内にスーパー・飲食店があります。南城市は沖縄の自然と歴史に溢れたエリアです。地元食材でのキッチン利用もおすすめです。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q">那覇空港からのアクセスは？</summary>
+      <p class="faq-a">那覇空港からレンタカーで約40分。南城市玉城エリアは沖縄本島の南東部に位置し、世界遺産の斎場御嶽も近くにあります。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q">ペットの同伴は可能ですか？</summary>
+      <p class="faq-a">誠に恐れ入りますが、ペットの同伴はご遠慮いただいております。詳細はご予約前にご確認ください。</p>
+    </details>
+  </div>
+</section>
+
+<!-- ================================================================
+     SNS
+     ================================================================ -->
+<section class="sn-sec" id="sns">
+  <p class="sn-lead">Follow the silence</p>
+  <a href="https://www.instagram.com/momo_okinawa/" class="sn-ig" target="_blank" rel="noopener" id="snsInstagram">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+    <span>@momo_okinawa</span>
+  </a>
+</section>
+
+<!-- ================================================================
+     FOOTER
+     ================================================================ -->
+<footer class="ft">
+  <div class="ft-brand">
+    <span class="ft-kanji">百</span>
+    <span class="ft-en">momo</span>
+    <p class="ft-tag">Tiny Luxury Villa &nbsp;·&nbsp; Nanjo, Okinawa</p>
+  </div>
+  <div class="ft-info">
+    <p class="ft-addr">〒901-1400<br>沖縄県南城市玉城字百名 1471-1</p>
+    <p class="ft-links">
+      <a href="./privacy-policy.html">Privacy Policy</a>
+      <span class="ft-sep">·</span>
+      <a href="./terms.html">Terms</a>
+    </p>
+  </div>
+  <div class="ft-right">
+    <p class="ft-copy" id="footerCopy">© 百momo All Rights Reserved.</p>
+    <p class="ft-credit">Produced by <a href="https://search-mania.net/" target="_blank" rel="noopener noreferrer">SearchMania Inc.</a></p>
+  </div>
+</footer>
+<div class="partner-notice">
+  <p>このサイトは百momoの予約簡素化を目的に SearchMania Inc. が制作したパートナーサイトです。</p>
+  <a href="https://momokinawa.com/" target="_blank" rel="noopener noreferrer">公式サイトはこちら &nbsp;→</a>
+</div>
+
+<!-- ================================================================
+     SCRIPT
+     ================================================================ -->
+<script>
+/* ================================================================
+   GAS CMS 設定
+   ================================================================ */
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbyLXm1UNkxfWBdZw8d1HGDV6KmVkWGTDfVUkegt_sNzdTd-VPRetCaIGSAGzA-4lGuw/exec';
+
+/* ================================================================
+   ユーティリティ
+   ================================================================ */
+function esc(s) {
+  return String(s || '')
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function fmtDate(s) {
+  if (!s) return '';
+  const m = String(s).match(/^(\d{4})-(\d{2})-(\d{2})/);
+  return m ? `${m[1]}.${m[2]}.${m[3]}` : String(s);
+}
+
+function driveImg(url) {
+  if (!url) return '';
+  const s = String(url).trim();
+  const m1 = s.match(/\/d\/([a-zA-Z0-9_-]+)/);
+  if (m1) return `https://drive.google.com/thumbnail?id=${m1[1]}&sz=w1200`;
+  const m2 = s.match(/lh3\.googleusercontent\.com\/d\/([a-zA-Z0-9_-]+)/);
+  if (m2) return `https://lh3.googleusercontent.com/d/${m2[1]}=w1200`;
+  if (s.indexOf('drive.google.com/thumbnail') !== -1) {
+    return s.replace(/[?&]sz=[^&]*/, '?sz=w1200');
+  }
+  return s;
+}
+
+function stars(n) {
+  const full = Math.max(0, Math.min(5, n || 5));
+  return '★'.repeat(full) + '☆'.repeat(5 - full);
+}
+
+/* ================================================================
+   apply 関数群
+   ================================================================ */
+function applySettings(s) {
+  window._settings = s;
+  if (s.copyright) {
+    const el = document.getElementById('footerCopy');
+    if (el) el.textContent = s.copyright;
+  }
+  if (s.bookUrl) {
+    document.querySelectorAll('[href*="chillnn.com"], [href*="airbnb.com"]').forEach(el => {
+      el.href = s.bookUrl;
+    });
+  }
+}
+
+function applyHero(h) {
+  if (h.subLines && h.subLines.length > 0) {
+    const el = document.getElementById('heroSub');
+    if (el) el.innerHTML = h.subLines.map(l => esc(l)).join('<br>');
+  }
+  if (h.bgImage) {
+    const bg = document.getElementById('heroBg');
+    if (bg) {
+      const img = driveImg(h.bgImage);
+      if (img) {
+        bg.style.backgroundImage = `url(${img})`;
+        bg.style.backgroundSize = 'cover';
+        bg.style.backgroundPosition = 'center';
+      }
+    }
+  }
+}
+
+function applyAbout(a) {
+  if (a.quote) {
+    const el = document.getElementById('aboutQuote');
+    if (el) el.innerHTML = `"${esc(a.quote)}"`;
+  }
+  if (a.paragraphs && a.paragraphs.length) {
+    const el = document.getElementById('aboutBody');
+    if (el) el.innerHTML = a.paragraphs.map(p => `<p>${esc(p)}</p>`).join('');
+  }
+  if (a.photos && a.photos.length) {
+    const ph1 = document.getElementById('aboutPhoto1');
+    if (ph1 && a.photos[0]) {
+      const img = driveImg(a.photos[0].image);
+      if (img) {
+        ph1.innerHTML = `<img src="${esc(img)}" alt="${esc(a.photos[0].caption || '')}" loading="lazy" class="cms-fade" style="width:100%;height:100%;object-fit:cover;display:block;">`;
+        // keep label stamp
+        const lbl = document.createElement('span');
+        lbl.className = 'photo-label';
+        lbl.textContent = 'CONCEPT';
+        ph1.appendChild(lbl);
+      } else {
+        ph1.classList.remove('cms-photo');
+      }
+    }
+  }
+}
+
+function applyMenu(items) {
+  if (!items || !items.length) return;
+  const grid = document.getElementById('menuGrid');
+  if (!grid) return;
+  grid.classList.remove('cms-loading');
+  grid.innerHTML = items.map(m => {
+    const img = driveImg(m.image);
+    return `<article class="plan-card reveal${m.bestSeller ? ' plan-featured' : ''}">
+      ${img ? `<div class="plan-img"><img src="${esc(img)}" alt="${esc(m.name)}" loading="lazy"></div>` : ''}
+      <div class="plan-body">
+        ${m.bestSeller ? '<span class="plan-badge">Recommended</span>' : ''}
+        <h3 class="plan-name">${esc(m.name)}</h3>
+        ${m.price ? `<p class="plan-price">${esc(m.price)}</p>` : ''}
+        ${m.desc ? `<p class="plan-desc">${esc(m.desc)}</p>` : ''}
+      </div>
+    </article>`;
+  }).join('');
+}
+
+function applyFeatures(items) {
+  if (!items || !items.length) return;
+  const grid = document.getElementById('featuresGrid');
+  if (!grid) return;
+  grid.innerHTML = items.map(f => `
+    <div class="fac-item reveal">
+      <span class="fac-n">${esc(f.num)}</span>
+      <div class="fac-body">
+        <h3 class="fac-title">${esc(f.title)}</h3>
+        <p class="fac-desc">${esc(f.desc)}</p>
+      </div>
+    </div>`).join('');
+  observe(grid, '.fac-item');
+}
+
+function applyForYou(items) {
+  if (!items || !items.length) return;
+  const grid = document.getElementById('forYouGrid');
+  if (!grid) return;
+  grid.innerHTML = items.map(f => {
+    const img = driveImg(f.image);
+    return `<article class="foryou-card reveal">
+      <div class="foryou-photo">
+        ${img
+          ? `<img src="${esc(img)}" alt="${esc(f.label)}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">`
+          : '<div class="ph-placeholder"></div>'}
+      </div>
+      <div class="foryou-body">
+        <p class="foryou-label">${esc(f.label)}</p>
+        <p class="foryou-desc">${esc(f.caption)}</p>
+      </div>
+    </article>`;
+  }).join('');
+  observe(grid, '.foryou-card');
+}
+
+function applyReviews(items) {
+  if (!Array.isArray(items) || !items.length) return;
+  const grid = document.getElementById('reviewsGrid');
+  if (!grid) return;
+  let html = items.map(r =>
+    `<article class="review reveal">
+      <div class="review-stars">${stars(r.stars)}</div>
+      <p class="review-body">${esc(r.text || '')}</p>
+      <div class="review-meta">
+        <span class="review-name">${esc(r.name || '')}</span>
+        <span class="review-date">${esc(fmtDate(r.date))}</span>
+      </div>
+    </article>`
+  ).join('');
+  if (items.length < 6) {
+    const gbpUrl = (window._settings && window._settings.gbpUrl) || '#';
+    html += `<a class="review review-cta reveal" href="${esc(gbpUrl)}" target="_blank" rel="noopener">
+      <div class="review-cta-stars">★ ★ ★ ★ ★</div>
+      <p class="review-cta-msg">他のクチコミも<br>Googleでご覧いただけます</p>
+      <span class="review-cta-link">Google で見る &nbsp;→</span>
+    </a>`;
+  }
+  grid.innerHTML = html;
+  observe(grid, '.review');
+}
+
+function applyBlog(items) {
+  const wall = document.querySelector('#blog .wall');
+  if (wall) wall.classList.remove('cms-loading');
+  if (!items || !items.length) return;
+  const valid = items.filter(b => b.body || b.title);
+  if (!valid.length) return;
+  window._blogItems = valid;
+  wall.innerHTML = valid.map((b, i) => {
+    let rawTitle = (b.title || '').trim();
+    if (!rawTitle && b.body) {
+      rawTitle = (String(b.body).split(/[。\n]/)[0] || '').trim();
+    }
+    if (!rawTitle && b.date) rawTitle = `${fmtDate(b.date)} の投稿`;
+    const shortTitle = rawTitle.length > 44 ? rawTitle.slice(0, 44) + '…' : rawTitle;
+    const imgUrl = driveImg(b.image);
+    const blogHref = (b.url && b.url.includes('/blog/'))
+      ? b.url
+      : (b.date ? `/blog/${b.date}/` : null);
+    const tagOpen = blogHref
+      ? `<a href="${blogHref}" class="e blog-card reveal">`
+      : `<article class="e blog-card reveal" role="button" tabindex="0" data-idx="${i}">`;
+    const tagClose = blogHref ? '</a>' : '</article>';
+    return `${tagOpen}
+      ${imgUrl
+        ? '<div class="blog-img"><img src="' + esc(imgUrl) + '" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>'
+        : '<div class="blog-img blog-img-empty"></div>'}
+      <div class="blog-body">
+        ${b.date ? '<span class="blog-date">' + esc(fmtDate(b.date)) + '</span>' : ''}
+        <p class="blog-cap">${esc(shortTitle)}</p>
+        ${b.body ? '<span class="blog-cta">Read more &nbsp;→</span>' : ''}
+      </div>
+    ${tagClose}`;
+  }).join('');
+  if (typeof observe === 'function') observe(wall, '.e');
+}
+
+function applyAccess(a) {
+  if (a.address) { const el = document.getElementById('accessAddress'); if (el) el.textContent = a.address; }
+  if (a.station) { const el = document.getElementById('accessStation'); if (el) el.textContent = a.station; }
+  if (a.parking) { const el = document.getElementById('accessParking'); if (el) el.textContent = a.parking; }
+  if (a.mapEmbed) {
+    const el = document.getElementById('mapEmbed');
+    if (el) el.innerHTML = `<iframe src="${esc(a.mapEmbed)}" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" title="百momo地図"></iframe>`;
+  }
+}
+
+function applySNS(items) {
+  const ig = items && items.find(s => s.platform === 'Instagram');
+  if (ig && ig.url) {
+    const el = document.getElementById('snsInstagram');
+    if (el) {
+      el.href = ig.url;
+      const span = el.querySelector('span');
+      if (span) span.textContent = ig.handle || ig.url;
+    }
+  }
+}
+
+function applyDelivery(items) { /* 宿泊施設向けは使用しない */ }
+
+function applyFAQ(items) {
+  if (!items || !items.length) return;
+  const list = document.getElementById('faqList');
+  if (!list) return;
+  list.innerHTML = items.map(f =>
+    `<details class="faq-item">
+      <summary class="faq-q">${esc(f.q)}</summary>
+      <p class="faq-a">${esc(f.a)}</p>
+    </details>`
+  ).join('');
+}
+
+function applyCTA(c) {
+  if (c.headline1) {
+    const el = document.getElementById('ctaHeading1');
+    if (el) el.innerHTML = esc(c.headline1) + (c.headline2 ? `<br><em>${esc(c.headline2)}</em>` : '');
+  }
+  if (c.subText) {
+    const el = document.getElementById('ctaSub');
+    if (el) el.innerHTML = esc(c.subText).replace(/\n/g, '<br>');
+  }
+  if (c.btn1Text && c.btn1Url) { const el = document.getElementById('ctaBtn1'); if (el) { el.textContent = c.btn1Text; el.href = c.btn1Url; } }
+  if (c.btn2Text && c.btn2Url) { const el = document.getElementById('ctaBtn2'); if (el) { el.textContent = c.btn2Text; el.href = c.btn2Url; } }
+  if (c.eyebrow) { const el = document.getElementById('ctaEyebrow'); if (el) el.textContent = c.eyebrow; }
+  if (c.copyright) { const el = document.getElementById('footerCopy'); if (el) el.textContent = c.copyright; }
+  if (c.footerDesc) { const el = document.querySelector('.cta-note'); if (el) el.textContent = c.footerDesc; }
+}
+
+/* ================================================================
+   CMS fetch
+   ================================================================ */
+fetch(GAS_URL)
+  .then(r => r.json())
+  .then(data => {
+    if (data.settings) applySettings(data.settings);
+    if (data.hero)     applyHero(data.hero);
+    if (data.about)    applyAbout(data.about);
+    if (data.menu)     applyMenu(data.menu);
+    if (data.features) applyFeatures(data.features);
+    if (data.forYou)   applyForYou(data.forYou);
+    if (data.reviews)  applyReviews(data.reviews);
+    if (data.blog)     applyBlog(data.blog);
+    if (data.access)   applyAccess(data.access);
+    if (data.sns)      applySNS(data.sns);
+    if (data.delivery) applyDelivery(data.delivery);
+    if (data.faq)      applyFAQ(data.faq);
+    if (data.cta)      applyCTA(data.cta);
+  })
+  .catch(err => console.warn('CMS fetch error (GAS未設定):', err));
+
+/* ================================================================
+   Nav ドロワー
+   ================================================================ */
+(function() {
+  const toggle = document.getElementById('navToggle');
+  const drawer = document.getElementById('navDrawer');
+  const bg     = document.getElementById('drawerBg');
+  const close  = document.getElementById('drawerClose');
+
+  function openDrawer() {
+    drawer.classList.add('drawer-open');
+    bg.classList.add('drawer-bg-show');
+    toggle.setAttribute('aria-label', 'メニューを閉じる');
+    toggle.classList.add('ham-open');
+  }
+  function closeDrawer() {
+    drawer.classList.remove('drawer-open');
+    bg.classList.remove('drawer-bg-show');
+    toggle.setAttribute('aria-label', 'メニューを開く');
+    toggle.classList.remove('ham-open');
+  }
+  if (toggle) toggle.addEventListener('click', () => drawer.classList.contains('drawer-open') ? closeDrawer() : openDrawer());
+  if (close)  close.addEventListener('click', closeDrawer);
+  if (bg)     bg.addEventListener('click', closeDrawer);
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
+})();
+
+/* ================================================================
+   スクロールリビール (IntersectionObserver)
+   ================================================================ */
+function observe(root, sel) {
+  const els = (root || document).querySelectorAll(sel || '.reveal');
+  if (!els.length) return;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  els.forEach(el => io.observe(el));
+}
+document.addEventListener('DOMContentLoaded', () => {
+  observe(document, '.reveal');
+  document.querySelectorAll('.cms-fade').forEach(img => {
+    if (img.complete) img.classList.add('img-loaded');
+    else img.addEventListener('load', () => img.classList.add('img-loaded'));
+  });
+});
+
+/* ================================================================
+   FAQ アコーディオン
+   ================================================================ */
+document.addEventListener('click', e => {
+  const sum = e.target.closest('summary.faq-q');
+  if (!sum) return;
+  const det = sum.closest('details.faq-item');
+  document.querySelectorAll('details.faq-item[open]').forEach(d => {
+    if (d !== det) d.removeAttribute('open');
+  });
+});
+
+/* ================================================================
+   CTA Dock — scroll hide (hero内は非表示)
+   ================================================================ */
+(function() {
+  const dock = document.getElementById('ctaDock');
+  const hero = document.getElementById('hero');
+  if (!dock || !hero) return;
+  const io = new IntersectionObserver(entries => {
+    dock.classList.toggle('dock-hidden', entries[0].isIntersecting);
+  }, { threshold: 0.3 });
+  io.observe(hero);
+})();
+</script>
+
+</body>
+</html>
