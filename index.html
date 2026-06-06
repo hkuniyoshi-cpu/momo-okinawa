@@ -710,7 +710,25 @@ function applyAccess(a) {
   if (a.parking) { const el = document.getElementById('accessParking'); if (el) el.textContent = a.parking; }
   if (a.mapEmbed) {
     const el = document.getElementById('mapEmbed');
-    if (el) el.innerHTML = `<iframe src="${esc(a.mapEmbed)}" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" title="百momo地図"></iframe>`;
+    if (el) {
+      const val = String(a.mapEmbed).trim();
+      if (val.toLowerCase().startsWith('<iframe')) {
+        // Sheets に <iframe> タグごと入力されている場合 → そのまま挿入し width/height を上書き
+        const tmp = document.createElement('div');
+        tmp.innerHTML = val;
+        const fr = tmp.querySelector('iframe');
+        if (fr) {
+          fr.setAttribute('width', '100%');
+          fr.setAttribute('height', '100%');
+          fr.style.border = '0';
+          el.innerHTML = '';
+          el.appendChild(fr);
+        }
+      } else {
+        // src URL のみの場合 → iframe で包む
+        el.innerHTML = `<iframe src="${esc(val)}" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="百momo地図"></iframe>`;
+      }
+    }
   }
 }
 
