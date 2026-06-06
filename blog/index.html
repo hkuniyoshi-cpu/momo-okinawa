@@ -192,7 +192,7 @@ function driveImg(url){
   if(m1)return'https://drive.google.com/thumbnail?id='+m1[1]+'&sz=w1200';
   const m2=s.match(/lh3\.googleusercontent\.com\/d\/([a-zA-Z0-9_-]+)/);
   if(m2)return'https://lh3.googleusercontent.com/d/'+m2[1]+'=w1200';
-  if(s.indexOf('drive.google.com/thumbnail')!==-1)return s.replace(/[?&]sz=[^&]*/,'?sz=w1200');
+  if(s.indexOf('drive.google.com/thumbnail')!==-1)return s.replace(/([?&]sz=)[^&]*/,'$1w1200');
   return s;
 }
 function getSlug() {
