@@ -814,6 +814,8 @@ body::after {
 .rv-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;          /* 全行を同じ高さに揃える */
+  align-items: stretch;          /* カードをセル全体に引き伸ばす */
   gap: clamp(24px, 4vw, 48px);
   margin-top: 48px;
 }
@@ -823,6 +825,8 @@ body::after {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  height: 100%;                  /* セルの高さに追従 */
+  min-height: 300px;             /* 最低高さで均一感を出す */
 }
 .review-stars {
   font-size: 0.75rem;
@@ -836,6 +840,14 @@ body::after {
   font-size: clamp(0.95rem, 1.4vw, 1.1rem);
   line-height: 1.8;
   color: var(--text);
+  flex: 1;                       /* 残りスペースをすべて占有 */
+  display: -webkit-box;
+  -webkit-line-clamp: 8;         /* 8行でカット + 「…」表示 */
+  line-clamp: 8;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
 }
 .review-meta {
   font-family: var(--font-ui);
