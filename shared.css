@@ -398,6 +398,16 @@ body::after {
   max-width: 480px;
   text-shadow: 0 1px 12px rgba(0,0,0,0.9);
 }
+.hero-sub-en {
+  font-family: var(--font-ui);
+  font-size: clamp(0.6rem, 0.9vw, 0.72rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(245,240,230,0.45);
+  max-width: 480px;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+  margin-top: -8px;
+}
 
 /* Scroll down indicator (bottom-center) */
 .hero-scroll {
@@ -540,6 +550,15 @@ body::after {
   color: var(--text-muted);
 }
 .ed-body p { margin: 0; }
+.ed-body-en {
+  font-family: var(--font-ui);
+  font-size: clamp(0.72rem, 1vw, 0.82rem);
+  letter-spacing: 0.12em;
+  line-height: 2;
+  color: var(--text-muted);
+  opacity: 0.6;
+  margin-top: 4px;
+}
 
 /* Blockquote */
 .ed-quote {
